@@ -1,0 +1,8 @@
+Django>=4.2
+Pillow>=10.0
+whitenoise>=6.6
+Gunicorn>=21.2
+# Se usar TensorFlow, descomente a linha abaixo
+# tensorflow>=2.15
+# Se quiser usar variáveis de ambiente locais
+# python-dotenv>=1.0
