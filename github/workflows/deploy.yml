@@ -1,0 +1,31 @@
+name: CI/CD para Django no Render
+
+on:
+  push:
+    branches:
+      - master  # ou 'master' dependendo da sua branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Rodar testes
+      run: |
+        python manage.py test
+
+    - name: Deploy automático (Render cuida disso após o push)
+      run: echo "Deploy será feito pelo Render automaticamente"
