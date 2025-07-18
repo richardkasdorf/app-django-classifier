@@ -2,9 +2,18 @@ import numpy as np
 from PIL import Image
 import fitz
 import tensorflow as tf
+import os
 
 # Carregue o modelo apenas uma vez ao iniciar o servidor
-modelo = tf.keras.models.load_model( r"C:\Users\richa\OneDrive\Área de Trabalho\DevOps_Python\Separa_imagens\modelo_cao_gato.h5" )
+#modelo = tf.keras.models.load_model( r"C:\Users\richa\OneDrive\Área de Trabalho\DevOps_Python\Separa_imagens\modelo_cao_gato.h5" )
+
+# Caminho absoluto seguro
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+modelo_path = os.path.join(BASE_DIR, "modelos", "modelo_cao_gato.h5")
+
+# Carrega o modelo de forma portátil
+modelo = tf.keras.models.load_model(modelo_path)
+
 
 def extrair_imagem_do_pdf(path_pdf):
     doc = fitz.open(path_pdf)
