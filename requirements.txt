@@ -4,7 +4,7 @@ whitenoise>=6.6
 gunicorn>=21.2
 
 numpy>=1.24
-tensorflow>=2.13
+tensorflow>=2.10.0
 PyMuPDF>=1.23
 # Se usar TensorFlow, descomente a linha abaixo
 # tensorflow>=2.15
