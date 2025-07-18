@@ -24,7 +24,7 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', include('classificacao.urls')),
 ]
 
 #urlpatterns = [
